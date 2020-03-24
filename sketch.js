@@ -4,23 +4,60 @@
 // }
 
 function setup() {
-  createCanvas(800, 600, WEBGL);
+  createCanvas(800, 600, WEBGL)
   // colorMode(HSB, 400, 100, 100);
   // imageMode(CENTER);
-
-  noStroke();
+  img = loadImage("image.jpg")
+  // noStroke();
 }
-
+var img
+var t = 0
 function draw() {
   // console.log("123");
-  background(220);
-  fill(255, 159, 140);
-  beginShape();
+  // background(220);
+  // lights();
+  // translate(0, 0, -200);
+  // push();
+  // translate(-150, 0, 0);
+  // texture(img);
+  // box(50, 200, 30);
+  // translate(300, 0, 0);
+  // box(50, 200, 30);
+  // pop();
+  // translate(0, 0, 200);
+  // push();
+  // translate(-150, 0, 0);
+  // texture(img);
+  // box(50, 200, 30);
+  // translate(300, 0, 0);
+  // box(50, 200, 30);
+  // pop();
+  // fill(120, 255, 100);
+  // rotateX(HALF_PI);
+  // translate(0, 0, -100);
+  // plane(500, 400);
+  // push();
+  // translate(0, 0, 100);
+  // rotateX(HALF_PI);
+  // cone(80, 100);
+  // translate(0, -70, 0);
+  // cylinder(50, 50);
+  // camera(sin(frameCount * 0.01) * 300, 0, 200, 0, 0, 0, 0, 1, 0);
+  // 3D
+  // texture(img);
+  // t += 0.05;
+  // rotateX(-t);
+  // plane(400, 300);
+  // cylinder(200, 100);
+  // cone(200, 100);
+  // ellipsoid(300, 100, 300);
+  // torus(200, 100);
+  // fill(255, 159, 140);
+  // beginShape();
   // dt = TWO_PI / 16;
   // for (let theta = 0; theta <= TWO_PI + 0.1; theta += dt) {
   //   r = 100 + random() * 50;
   //   r1 = 80 + random() * 30;
-
   //   let x = r * cos(theta);
   //   let y = r * sin(theta);
   //   vertex(x, y);
@@ -28,19 +65,19 @@ function draw() {
   //   y = r1 * sin(theta);
   //   vertex(x, y);
   // }
-  let r1 = 100;
-  let r2 = mouseY;
-  for (let i = 0; i <= 16; i++) {
-    let x = r1 * sin(i * (TWO_PI / 16));
-    let y = r1 * cos(i * (TWO_PI / 16));
-    let xc = r2 * sin(i * (TWO_PI / 16));
-    let yc = r2 * cos(i * (TWO_PI / 16));
-    if (i == 0) vertex(x, y);
-    else {
-      quadraticVertex(xc, yc, x, y);
-    }
-  }
-  endShape();
+  // let r1 = 100;
+  // let r2 = mouseY;
+  // for (let i = 0; i <= 16; i++) {
+  //   let x = r1 * sin(i * (TWO_PI / 16));
+  //   let y = r1 * cos(i * (TWO_PI / 16));
+  //   let xc = r2 * sin(i * (TWO_PI / 16));
+  //   let yc = r2 * cos(i * (TWO_PI / 16));
+  //   if (i == 0) vertex(x, y);
+  //   else {
+  //     quadraticVertex(xc, yc, x, y);
+  //   }
+  // }
+  // endShape();
   // image(ss, 0, 0, 80, 50);
   // for (let index = 0; index < height; index++) {
   //   stroke(index, 70, 100);
