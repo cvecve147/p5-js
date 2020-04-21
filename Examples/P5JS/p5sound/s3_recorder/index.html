@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+    <style media="screen">
+      html, body {
+        background-color: lightYellow;
+        margin:0;
+        padding:0;
+      }
+      canvas {
+        background-color: lightgrey;
+        display: block;
+      }
+      body > *{
+        float : left;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>錄音存檔範例 (Chrome 無法存檔，請使用 Firefox.) : </h1>
+    <div class="">
+      <p> mic: p5.audioIn() recorder: p5.SoundRecorder()  soundfile: p5.SoundFile()</p>
+      <p>麥克風取音，由 p5.audioIn() 物件進行，將之傳給在 p5.SoundRecorder 也就是 rec.setInput(mic)，開始錄音時就會將 mic 目前的緩衝存在
+         rec 的緩衝內。這個緩衝若是等一下要放到檔案中，可以在宣告錄音物件時，便將 soundfile 作為參數，當作 rec 的緩衝；</p>
+         <p>rec = new SoundRecord( soundFile ); 接著的 rec.record() 就是將此時的 mic 加入倒 soundFile 的 buffer</p>
+         
+    </div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>

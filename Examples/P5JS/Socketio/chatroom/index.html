@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>聊天室</title>
+    <script type="text/javascript" src="http://localhost/P5JS/socketio/socket.io.js">
+
+    </script>
+    <link rel="stylesheet" href="http://localhost/P5JS/socketio/chatroom/chat.css">
+  </head>
+  <body>
+    <div id="container">
+        <div id="status-box">Server: <span id="status">-</span> / <span id="online">0</span> online.</div>
+        <div id="content">
+
+        </div>
+        <div id="send-box">
+            <form id="send-form">
+                <input type="text" name="name" id="name" placeholder="暱稱">
+                <input type="text" name="msg" id="msg" placeholder="說點什麼？">
+                <input type="submit" value="送出">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+       let socket = io.connect("http://localhost:3000");
+       document.addEventListener("DOMContentLoaded", () => {
+          console.log("DOMContentLoaded! ...")
+           var status = document.getElementById("status");
+           var online = document.getElementById("online");
+          var sendForm = document.getElementById("send-form"); // 加入這行
+          var content = document.getElementById("content");    // 加入這行
+          sendForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                var formData = {};
+                var formChild = sendForm.children;
+
+                for (var i=0; i< sendForm.childElementCount; i++) {
+                    var child = formChild[i];
+                    if (child.name !== "") {
+                        formData[child.name] = child.value;
+                    }
+                }
+                socket.emit("send", formData);
+            });
+           socket.on("connect", function () {
+               status.innerText = "Connected.";
+           });
+
+           socket.on("disconnect", function () {
+               status.innerText = "Disconnected.";
+           });
+
+           socket.on("online", function (amount) {
+               online.innerText = 20;
+           });
+           socket.on("msg", function (d) {
+                var msgBox = document.createElement("div")
+                    msgBox.className = "msg";
+                var nameBox = document.createElement("span");
+                    nameBox.className = "name";
+                var name = document.createTextNode(d.name);
+                var msg = document.createTextNode(d.msg);
+
+                nameBox.appendChild(name);
+                msgBox.appendChild(nameBox);
+                msgBox.appendChild(msg);
+                content.appendChild(msgBox);
+            });
+       });
+    </script>
+
+  </body>
+</html>

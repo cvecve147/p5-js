@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="socket.io.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let socket;
+      socket = io.connect("http://localhost:8080");
+      let data={x: 100, y:200};
+      socket.emit('mouse',data);
+      socket.on("mouse",function(data){
+        document.getElementById("res").innerHTML="m: " + data.x +" "+data.y;
+      })
+    </script>
+    <<div class="" id="res">
+
+    </div>
+  </body>
+</html>

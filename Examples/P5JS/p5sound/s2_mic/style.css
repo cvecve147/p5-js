@@ -1,0 +1,11 @@
+html, body{
+  background-color: lightyellow;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  width: 700px;
+  height: 400px;
+}
