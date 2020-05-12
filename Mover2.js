@@ -45,9 +45,11 @@ class Mover {
   }
 
   display() {
+    let alpa = map(this.m, 0, 5, 0, 255)
+    fill(127, alpa)
+
     ellipse(this.po.x, this.po.y, 10)
-    // let alpa = map(this.m, 0, 5, 0, 255)
-    // fill(127, alpa)
+
     // push()
     // translate(this.po.x, this.po.y)
     // rotate(this.theta)
