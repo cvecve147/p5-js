@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="range" name="" id="" v-model="range" :max="data.length-1" />
+      {{range}} {{data[range]}}
+      <br />
+      資料區 {{data}}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            range: 0,
+            data: [],
+            max: 0,
+          }
+        },
+        methods: {
+          format(val) {
+            return val > 9 ? val : `0${val}`
+          },
+        },
+        created() {
+          for (let i = 1; i < 30; i++) {
+            this.data.push(`2020/01/${this.format(i)}`)
+          }
+          console.log(this.data.length)
+          this.max = this.data.length - 1
+        },
+      })
+    </script>
+  </body>
+</html>
